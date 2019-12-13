@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">  
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/> <!---For when I get the mobile swipe menu working-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <title>Kwik N Easy</title>
+  <title>Quick N Easy</title>
 </head>
 <body class = "blue lighten-3">  
     <!--NAVBAR-->
@@ -19,10 +19,10 @@
                   <a href="#" class="grey-text modal-trigger" data-target="modal-create">Share Recipe</a>
                 </li> -->
                 <li class = "logged-out">
-                  <a href = "#" class = "grey-text modal-trigger" data-target="modal-signup">Sign Up</a>
+                  <a href = "register.html" class = "grey-text modal-trigger" data-target="modal-signup">Sign Up</a>
                 </li>
                 <li class= "logged-out">
-                  <a href="#" class="grey-text modal-trigger" data-target="modal-login" >Login</a>
+                  <a href="register.html" class="grey-text modal-trigger" data-target="modal-login" >Login</a>
                 </li>
                 <!-- <li class="logged-in">
                   <a href="#" class="grey-text" id="logout">Logout</a>
@@ -134,33 +134,35 @@
     </div>
   </div>
 </body>
+
 <script>
-// Your web app's Firebase configuration
-// var firebaseConfig = {
-//     apiKey: "AIzaSyA0STLHFZxlgZ0sn4FQRhHunX0rIipNt7U",
-//     authDomain: "recipes-project-824a9.firebaseapp.com",
-//     databaseURL: "https://recipes-project-824a9.firebaseio.com",
-//     projectId: "recipes-project-824a9",
-//     storageBucket: "recipes-project-824a9.appspot.com",
-//     messagingSenderId: "111590592456",
-//     appId: "1:111590592456:web:1e808ba5da09b8a6223afd",
-//     measurementId: "G-1FWE3L8JEW"
-//   };
-//   // Initialize Firebase
-//   firebase.initializeApp(firebaseConfig);
-//   firebase.analytics();
+//Your web app's Firebase configuration
+var firebaseConfig = {
+    apiKey: "AIzaSyA0STLHFZxlgZ0sn4FQRhHunX0rIipNt7U",
+    authDomain: "recipes-project-824a9.firebaseapp.com",
+    databaseURL: "https://recipes-project-824a9.firebaseio.com",
+    projectId: "recipes-project-824a9",
+    storageBucket: "recipes-project-824a9.appspot.com",
+    messagingSenderId: "111590592456",
+    appId: "1:111590592456:web:1e808ba5da09b8a6223afd",
+    measurementId: "G-1FWE3L8JEW"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
   
-//   // make auth and firestore references
-//   const auth = firebase.auth();
-//   const db = firebase.firestore();
+  // make auth and firestore references
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+  //var firestore = firebase.firestore();
   
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="materialize_function.js"></script>
+<script src="scripts/materialize_function.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-firestore.js"></script>
 
-<!-- <script src="scripts/auth.js"></script> -->
-<!-- <script src="scripts/index.js"></script> -->
+<script src="scripts/auth.js"></script>
+<script src="scripts/index.js"></script>
 <script src="scripts/add_display.js"></script>
 </html>
