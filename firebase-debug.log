@@ -1,0 +1,44 @@
+[debug] [2019-12-12T14:56:03.033Z] ----------------------------------------------------------------------
+[debug] [2019-12-12T14:56:03.035Z] Command:       /usr/local/bin/node /Users/mehmetozek/.npm-global/bin/firebase init functions
+[debug] [2019-12-12T14:56:03.035Z] CLI Version:   7.9.0
+[debug] [2019-12-12T14:56:03.035Z] Platform:      darwin
+[debug] [2019-12-12T14:56:03.035Z] Node Version:  v12.13.0
+[debug] [2019-12-12T14:56:03.035Z] Time:          Thu Dec 12 2019 08:56:03 GMT-0600 (Central Standard Time)
+[debug] [2019-12-12T14:56:03.036Z] ----------------------------------------------------------------------
+[debug] [2019-12-12T14:56:03.036Z] 
+[debug] [2019-12-12T14:56:03.048Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-12-12T14:56:03.048Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/mehmetozek/digital_crafts/htx-november/6project
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2019-12-12T14:56:43.130Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-12-12T14:56:43.130Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-12-12T14:56:43.260Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-12T14:56:43.291Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects?pageSize=100  
+ 
+[debug] [2019-12-12T14:56:43.560Z] <<< HTTP RESPONSE 200
+[debug] [2019-12-12T15:01:26.381Z] TypeError: Cannot read property 'setRawMode' of null
+    at ReadStream.setRawMode (tty.js:71:28)
+    at Interface._setRawMode (readline.js:277:16)
+    at Interface.close (readline.js:400:10)
+    at ReadStream.ontermend (readline.js:187:10)
+    at ReadStream.emit (events.js:215:7)
+    at ReadStream.EventEmitter.emit (domain.js:476:20)
+    at endReadableNT (_stream_readable.js:1183:12)
+    at processTicksAndRejections (internal/process/task_queues.js:80:21)
