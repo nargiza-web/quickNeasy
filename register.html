@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <title>Authentication</title>
+</head>
+<!-- most class names are coming from materialize -->
+<body class = "grey lighten-3">  
+  <!--NAVBAR-->
+  <nav class = "z-depth-0 #66bb6a green lighten-1 lighten-4">
+    <div class = "nav-wrapper container">
+      <ul id = "nav-mobile" class = "right hide-on-med-and-down">
+        <li class="logged-in" style="display: none">
+          <a href="#" class="grey-text modal-trigger" data-target="modal-create">Share Recipe</a>
+        </li>
+        <li class = "logged-out" style="display: none;">
+          <a href = "#" class = "grey-text modal-trigger" data-target="modal-signup">Sign Up</a>
+        </li>
+        <li class= "logged-out" style="display:none;">
+          <a href="#" class="grey-text modal-trigger" data-target="modal-login" >Login</a>
+        </li>
+        <li class="logged-in" style="display: none;">
+          <a href="#" class="grey-text" id="logout">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+  <!-- SIGN UP MODAL -->
+  <div id = "modal-signup" class = "modal">
+    <div class = "modal-content">
+      <h4>Sign Up</h4><br/>
+      <form id="signup-form">
+        <div class="input-field">
+          <input type = "text" id="firstName" required>
+          <label for="firstName">First Name</label>
+        </div>
+        <div class="input-field">
+          <input type = "email" id = "signup-email" required />
+          <label for = "signup-email">Email address</label>
+        </div>
+        <div class = "input-field">
+          <input type = "password" id = "signup-password" required />
+          <label for = "signup-password">Create password</label>
+        </div>
+        <button class="btn yellow darken-2 z-depth-0">Sign Up</button>
+      </form>
+    </div>
+  </div>
+  
+  <!--LOGIN MODAL-->
+ <div id="modal-login" class="modal">
+   <div class="modal-content">
+     <h4>Login</h4><br />
+     <form id="login-form">
+       <div class="input-field">
+         <input type="email" id="login-email" required>
+         <label for="login-email">Email address</label>
+       </div>
+       <div class="input-field">
+         <input type="password" id="login-password" required>
+         <label for="login-password">Your password</label>
+       </div>
+       <button class="btn yellow darken-2 z-depth-0">Login</button>
+     </form>
+   </div>
+ </div>  
+ 
+ <!--CREATE RECIPE MODAL-->
+ <div id="modal-create" class="modal">
+   <div class="modal-content">
+     <h4>Share your easy recipe</h4><br/>
+     <form id="create-form">
+       <div class="input-field">
+         <input type="text" id="name" required>
+         <label for="name">Recipe Title</label>
+       </div>
+       <div class="input-field">
+         <textarea id="ingredients" class="materialize-textarea" required></textarea>
+         <label for="ingredients">Ingredients</label>
+       </div>
+       <div class="input-field">
+         <textarea id="preparation" class="materialize-textarea" required></textarea>
+         <label for="preparation">Preperation</label>
+       </div>
+       <div class="input-field">
+         <input type="number" id="servings" >
+         <label for="servings">Servings</label>
+       </div>
+       <div class="input-field">
+         <input type="text" id="image" required>
+         <label for="image">image url only</label>
+       </div>
+       <button class="btn yellow darken-2 z-depth-0">Share</button>
+     </form>
+   </div>
+ </div>
+ 
+ <!--Account Details-->
+ <div class="account-details container" style="margin-top: 40px;" >
+  </div>
+ 
+ <!-- CREATED RECIPE -->
+ <div class="container" style="margin-top: 40px;">
+  <ul class="collapsible z-depth-0 createdRecipe" style="border: none;">
+  
+  </ul>
+</div>
+
+<div class="container" style="margin-top: 40px;">
+  <ul class="collapsible z-depth-0 sharedRecipes" style="border: none;">
+  
+  </ul>
+</div>
+
+
+ 
+  
+</body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-firestore.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyA0STLHFZxlgZ0sn4FQRhHunX0rIipNt7U",
+    authDomain: "recipes-project-824a9.firebaseapp.com",
+    databaseURL: "https://recipes-project-824a9.firebaseio.com",
+    projectId: "recipes-project-824a9",
+    storageBucket: "recipes-project-824a9.appspot.com",
+    messagingSenderId: "111590592456",
+    appId: "1:111590592456:web:1e808ba5da09b8a6223afd",
+    measurementId: "G-1FWE3L8JEW"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  
+  // make auth and firestore references
+  const auth = firebase.auth();
+  const db = firebase.firestore();
+  
+</script>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="scripts/auth.js"></script>
+<script src="scripts/index.js"></script>
+
+</html>
