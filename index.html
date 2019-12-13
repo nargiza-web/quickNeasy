@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">  
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/> <!---For when I get the mobile swipe menu working-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <title>Document</title>
+</head>
+<body class = "blue lighten-3">  
+    <!--NAVBAR-->
+    <div class="navbar-fixed"> <!--Makes Navbar Fixed-->
+        <nav class = "z-depth-2 green lighten-4">
+            <div class = "nav-wrapper container">
+              <a id="logo-container" href="#" class="brand-logo black-text">Quick N Easy</a>
+              <ul class = "right hide-on-med-and-down">
+                <li class = "logged-out">
+                  <a href = "#" class = "grey-text modal-trigger" data-target="modal-signup">Sign Up</a>
+                </li>
+                <li class= "logged-out">
+                  <a href="#" class="grey-text modal-trigger" data-target="modal-login" >Login</a>
+                </li>
+                <!-- <li class="logged-in">
+                  <a href="#" class="grey-text" id="logout">Logout</a>
+                </li> -->
+              </ul>
+            </div>
+          </nav>
+    </div>
+    
+    <!-- SIGN UP MODAL -->
+    <div id = "modal-signup" class = "modal">
+      <div class = "modal-content">
+        <h4>Sign Up</h4><br/>
+        <form id="signup-form">
+          <div class="input-field">
+            <input type = "email" id = "signup-email" required />
+            <label for = "signup-email">Email address</label>
+          </div>
+          <div class = "input-field">
+            <input type = "password" id = "signup-password" required />
+            <label for = "signup-password">Create password</label>
+          </div>
+          <button class="btn yellow darken-2 z-depth-0">Sign Up</button>
+        </form>
+      </div>
+    </div>
+    
+    <!--LOGIN MODAL-->
+   <div id="modal-login" class="modal">
+     <div class="modal-content">
+       <h4>Login</h4><br />
+       <form id="login-form">
+         <div class="input-field">
+           <input type="email" id="login-email" required>
+           <label for="login-email">Email address</label>
+         </div>
+         <div class="input-field">
+           <input type="password" id="login-password" required>
+           <label for="login-password">Your password</label>
+         </div>
+         <button class="btn yellow darken-2 z-depth-0">Login</button>
+       </form>
+     </div>
+   </div>  
+   
+   <!--CREATE RECIPE MODAL-->
+   <div id="modal-create" class="modal">
+     <div class="modal-content">
+       <h4>Share your easy recipe</h4><br/>
+       <form id="create-form">
+
+         <div class="input-field">
+           <input type="text" id="name" required>
+           <label for="name">Recipe Title</label>
+         </div>
+
+         <div class="input-field">
+           <textarea id="recipe" class="materialize-textarea" required></textarea>
+           <label for="recipe">Ingredients</label>
+         </div>
+
+         <div class="input-field">
+           <textarea id="preparation" class="materialize-textarea" required></textarea>
+           <label for="preparation">Preperation</label>
+         </div>
+
+         <div class="input-field">
+           <input type="number" id="servings" >
+           <label for="servings">Servings</label>
+         </div>
+
+         <div class="input-field">
+           <input type="text" id="url" defaultValue="https://via.placeholder.com/150">
+           <label for="url">image url only</label>
+         </div>
+
+         <button class="btn yellow darken-2 z-depth-0">Share</button>
+       </form>
+     </div>
+   </div>
+   
+   <!-- CREATED RECIPE -->
+   <div class="container">
+     <div  style="margin-top: 40px;">
+      <ul class=" z-depth-0  col s6" style="border: none;">
+      </ul>
+    </div>
+  </div>​
+  <div class="row container">
+    <ul class="z-depth-0 listofRecipes col s7" style="display: flex;flex-wrap:wrap"></ul>
+    <div class="selected-recipe"> <!----Added another div so the recipe can have a scrollbar-->
+        <div>
+            <ul class="z-depth-2`  col s5" style="margin-top:0;justify-content:center;position:fixed;right:0; overflow:auto; height: 82%;">
+              <div class="video-and-image-div"> 
+                  <img  id="ok"  style="width:200px">
+                    <video style="visibility: hidden;" id="vi" width="200" height="200" autoplay controls></video>
+                  <div id="n"></div>
+                  <ul id="r"></ul>
+                  <ul id="p"></ul>
+                  <div id="s"></div>
+                 </img>
+              </div>
+            </ul>
+        </div>
+    </div>
+  </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="materialize.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-firestore.js"></script>
+<script src="display.js"></script>
+</html>
