@@ -8,106 +8,26 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <title>Quick N Easy</title>
 </head>
-<body class = "blue lighten-3">  
+<body class = "grey lighten-2">  
     <!--NAVBAR-->
     <div class="navbar-fixed"> <!--Makes Navbar Fixed-->
-        <nav class = "z-depth-2 green lighten-4">
+        <nav class = "z-depth-2 green lighten-1">
             <div class = "nav-wrapper container">
-              <a id="logo-container" href="#" class="brand-logo black-text">Quick N Easy</a>
+              <a id="logo-container" href="#" class="brand-logo black-text ">Quick N Easy</a>
               <ul class = "right hide-on-med-and-down">
-                <!-- <li class="logged-in">
-                  <a href="#" class="grey-text modal-trigger" data-target="modal-create">Share Recipe</a>
-                </li> -->
-                <li class = "logged-out">
-                  <a href = "register.html" class = "grey-text modal-trigger" data-target="modal-signup">Sign Up</a>
+
+
+                <li class = "logged-out" style="display:block">
+                  <a href = "register.html" class = "grey-text,text-darken-1 modal-trigger" data-target="modal-signup">Sign Up or Login</a>
                 </li>
-                <li class= "logged-out">
-                  <a href="register.html" class="grey-text modal-trigger" data-target="modal-login" >Login</a>
-                </li>
-                <!-- <li class="logged-in">
-                  <a href="#" class="grey-text" id="logout">Logout</a>
+                <!-- <li class= "logged-out">
+                  <a href="../Account/register.html" class="grey-text modal-trigger" data-target="modal-login" >Login</a>
                 </li> -->
               </ul>
             </div>
           </nav>
     </div>
     
-    <!-- SIGN UP MODAL -->
-    <div id = "modal-signup" class = "modal">
-      <div class = "modal-content">
-        <h4>Sign Up</h4><br/>
-        <form id="signup-form">
-          <div class="input-field">
-                <input type = "text" id="firstName" required>
-                <label for="firstName">First Name</label>
-          </div>
-          <div class="input-field">
-            <input type = "email" id = "signup-email" required />
-            <label for = "signup-email">Email address</label>
-          </div>
-          <div class = "input-field">
-            <input type = "password" id = "signup-password" required />
-            <label for = "signup-password">Create password</label>
-          </div>
-          <button class="btn yellow darken-2 z-depth-0">Sign Up</button>
-        </form>
-      </div>
-    </div>
-    
-    <!--LOGIN MODAL-->
-   <div id="modal-login" class="modal">
-     <div class="modal-content">
-       <h4>Login</h4><br />
-       <form id="login-form">
-         <div class="input-field">
-           <input type="email" id="login-email" required>
-           <label for="login-email">Email address</label>
-         </div>
-         <div class="input-field">
-           <input type="password" id="login-password" required>
-           <label for="login-password">Your password</label>
-         </div>
-         <button class="btn yellow darken-2 z-depth-0">Login</button>
-       </form>
-     </div>
-   </div>  
-  
-   <!--CREATE RECIPE MODAL-->
-   <div id="modal-create" class="modal">
-     <div class="modal-content">
-       <h4>Share your easy recipe</h4><br/>
-       <form id="create-form">
-
-         <div class="input-field">
-           <input type="text" id="name" required>
-           <label for="name">Recipe Title</label>
-         </div>
-
-         <div class="input-field">
-           <textarea id="recipe" class="materialize-textarea" required></textarea>
-           <label for="recipe">Ingredients</label>
-         </div>
-
-         <div class="input-field">
-           <textarea id="preparation" class="materialize-textarea" required></textarea>
-           <label for="preparation">Preperation</label>
-         </div>
-
-         <div class="input-field">
-           <input type="number" id="servings" >
-           <label for="servings">Servings</label>
-         </div>
-
-         <div class="input-field">
-           <input type="text" id="url" defaultValue="https://via.placeholder.com/150">
-           <label for="url">image url only</label>
-         </div>
-
-         <button class="btn yellow darken-2 z-depth-0">Share</button>
-       </form>
-     </div>
-   </div>
-   
    <!-- CREATED RECIPE -->
    <div class="container">
      <div  style="margin-top: 40px;">
@@ -124,9 +44,13 @@
                   <img  id="ok"  style="width:200px">
                     <video  id="vi" style="visibility: hidden" width="200" height="200" autoplay controls></video>
                   <div id="n"></div>
-                  <ul id="r"></ul>
-                  <ul id="p"></ul>
+                  <br>
+                  <div class="hr"></div>
+                  <br>
                   <div id="s"></div>
+                  <ul id="r"></ul>
+                  <br>
+                  <ul id="p"></ul>
                  </img>
               </div>
             </ul>
@@ -134,35 +58,10 @@
     </div>
   </div>
 </body>
-
-<script>
-//Your web app's Firebase configuration
-var firebaseConfig = {
-    apiKey: "AIzaSyA0STLHFZxlgZ0sn4FQRhHunX0rIipNt7U",
-    authDomain: "recipes-project-824a9.firebaseapp.com",
-    databaseURL: "https://recipes-project-824a9.firebaseio.com",
-    projectId: "recipes-project-824a9",
-    storageBucket: "recipes-project-824a9.appspot.com",
-    messagingSenderId: "111590592456",
-    appId: "1:111590592456:web:1e808ba5da09b8a6223afd",
-    measurementId: "G-1FWE3L8JEW"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
-  
-  // make auth and firestore references
-  const auth = firebase.auth();
-  const db = firebase.firestore();
-  //var firestore = firebase.firestore();
-  
-</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="scripts/materialize_function.js"></script>
+<script src="materialize.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-firestore.js"></script>
-
-<!-- <script src="scripts/auth.js"></script> -->
-<!-- <script src="scripts/index.js"></script> -->
-<script src="scripts/display.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-auth.js"></script>
+<script src="display.js"></script>
 </html>

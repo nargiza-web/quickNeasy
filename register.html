@@ -11,24 +11,36 @@
 <!-- most class names are coming from materialize -->
 <body class = "grey lighten-3">  
   <!--NAVBAR-->
-  <nav class = "z-depth-0 #66bb6a green lighten-1 lighten-4">
+  <div class="navbar-fixed">
+  <nav class = "z-depth-0 #66bb6a green lighten-1">
     <div class = "nav-wrapper container">
+        <a id="logo-container" href="#" class="brand-logo black-text">Quick N Easy</a>
       <ul id = "nav-mobile" class = "right hide-on-med-and-down">
+
         <li class="logged-in" style="display: none">
-          <a href="#" class="grey-text modal-trigger" data-target="modal-create">Share Recipe</a>
+          <a href="#" class="grey-text,text-darken-1 modal-trigger" data-target="modal-create">Share Recipe</a>
         </li>
+
+        <li class="logged-in" style="display: none" >
+          <a href="#" class="grey-text,text-darken-1" id="mymy">Favorties</a>
+        </li>
+
         <li class = "logged-out" style="display: none;">
-          <a href = "#" class = "grey-text modal-trigger" data-target="modal-signup">Sign Up</a>
+          <a href = "#" class = "grey-text,text-darken-1 modal-trigger" data-target="modal-signup">Sign Up</a>
         </li>
+
         <li class= "logged-out" style="display:none;">
-          <a href="#" class="grey-text modal-trigger" data-target="modal-login" >Login</a>
+          <a href="#" class="grey-text,text-darken-1 modal-trigger active" data-target="modal-login" >Login</a>
         </li>
+
         <li class="logged-in" style="display: none;">
-          <a href="#" class="grey-text" id="logout">Logout</a>
+          <a href="#" class="grey-text,text-darken-1" id="logout1">Logout</a>
         </li>
+        
       </ul>
     </div>
   </nav>
+  </div>
   
   <!-- SIGN UP MODAL -->
   <div id = "modal-signup" class = "modal">
@@ -48,6 +60,7 @@
           <label for = "signup-password">Create password</label>
         </div>
         <button class="btn yellow darken-2 z-depth-0">Sign Up</button>
+        <p class = "error pink-text center-align"></p>
       </form>
     </div>
   </div>
@@ -66,6 +79,7 @@
          <label for="login-password">Your password</label>
        </div>
        <button class="btn yellow darken-2 z-depth-0">Login</button>
+       <p class = "error pink-text center-align"></p>
      </form>
    </div>
  </div>  
@@ -92,10 +106,11 @@
          <label for="servings">Servings</label>
        </div>
        <div class="input-field">
-         <input type="text" id="image" required>
+         <input type="text" id="image" >
          <label for="image">image url only</label>
        </div>
        <button class="btn yellow darken-2 z-depth-0">Share</button>
+       <p class = "error pink-text center-align"></p>
      </form>
    </div>
  </div>
@@ -112,10 +127,56 @@
 </div>
 
 <div class="container" style="margin-top: 40px;">
-  <ul class="collapsible z-depth-0 sharedRecipes" style="border: none;">
+  <ul class="collapsible z-depth-0 " style="border: none;">
   
   </ul>
 </div>
+
+<!--WHERE ALL RECIPES GO HERE-->
+<div class="row container">
+  <ul class="z-depth-0 sharedRecipes col s7" style="display: flex;flex-wrap:wrap"></ul>
+  <div class="selected-recipe"> <!----Added another div so the recipe can have a scrollbar-->
+      <div>
+          <ul class="z-depth-2`  col s5" style="margin-top:0;justify-content:center;position:fixed;right:0; overflow:auto; height: 82%;">
+            <div class="video-and-image-div"> 
+                <img  id="allPicture"  style="width:200px">
+                  <video  id="allVideo" style="visibility: hidden" width="200" height="200" autoplay controls></video>
+                <div id="allName"></div>
+                <br>
+                <div id="allServings"></div>
+                <ul id="allRecipe"></ul>
+                <br>
+                <ul id="allPrep"></ul>
+               </img>
+            </div>
+          </ul>
+      </div>
+  </div>
+</div>
+
+<!--fav recipes for now-->
+
+<div class="row container">
+  <ul class="z-depth-0 listofFavourites col s7" style="display: flex;flex-wrap:wrap"></ul>
+  <div class="selected-recipe"> <!----Added another div so the recipe can have a scrollbar-->
+      <div>
+          <ul class="z-depth-2`  col s5" style="margin-top:0;justify-content:center;position:fixed;right:0; overflow:auto; height: 82%;">
+            <div class="video-and-image-div"> 
+                <img  id="favPicture"  style="width:200px">
+                  <video  id="favVideo" style="visibility: hidden" width="200" height="200" autoplay controls></video>
+                <div id="favName"></div>
+                <ul id="favRecipe"></ul>
+                <ul id="favPrep"></ul>
+                <div id="favServings"></div>
+               </img>
+            </div>
+          </ul>
+      </div>
+  </div>
+</div>
+
+<!--fav recipes for now-->
+
 
 
  
@@ -153,7 +214,7 @@
 </script>
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="scripts/auth.js"></script>
-<script src="scripts/index.js"></script>
+<script src="index.js"></script>
+<script src="auth.js"></script>
 
 </html>

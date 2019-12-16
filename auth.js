@@ -1,25 +1,29 @@
-db.collection('Recipes').onSnapshot(snapshot => {
-  showAllRecipes(snapshot.docs)
-})
-
 // LISTEN AUTH STATUS CHANGES
 auth.onAuthStateChanged(user => {
   if(user){
+    let userID = auth.currentUser.uid;
+ 
+    db.collection('users').doc(userID).collection('favorites').onSnapshot(snapshot => {
+      displayFavourites(snapshot.docs);
+    });
+    
     db.collection('Recipes').onSnapshot(snapshot => {
       mySharedRecipes(snapshot.docs);
     }, err => console.log(err.message));
     setupUI(user)
   } else {
+    displayFavourites([])
     setupUI()
     mySharedRecipes([])
   }
 })
 
+
 // create a RECIPE
 const createForm = document.querySelector('#create-form')
 createForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  db.collection('Favourites').add({
+  db.collection('Recipes').add({
     name: createForm.name.value,
     ingredients: createForm.ingredients.value,
     preparation: createForm.preparation.value,
@@ -31,6 +35,9 @@ createForm.addEventListener('submit', (e) => {
     const modal = document.querySelector('#modal-create');
     M.Modal.getInstance(modal).close();
     createForm.reset();
+    createForm.querySelector('.error').innerHTML = ""
+  }).catch(err => {
+    createForm.querySelector('.error').innerHTML = err.message
   })
 })
 
@@ -53,17 +60,22 @@ signupForm.addEventListener('submit', (e) => {
   const modal = document.querySelector('#modal-signup');
   M.Modal.getInstance(modal).close();
   signupForm.reset();
+  signupForm.querySelector('.error').innerHTML = ''
+  }).catch(err => {
+    signupForm.querySelector('.error').innerHTML = err.message
   })
 });
 
 // LOGOUT the user
-const logout = document.querySelector('#logout');
-logout.addEventListener('click', (e)=>{
+const logout1 = document.querySelector('#logout1');
+logout1.addEventListener('click', (e)=>{
   e.preventDefault();
   auth.signOut().then(() => {
     window.location = "index.html"
   })
 })
+
+
 
 // LOGIN - first event listener
 const loginForm = document.querySelector('#login-form')
@@ -81,5 +93,8 @@ loginForm.addEventListener('submit', (e) => {
     const modal = document.querySelector('#modal-login')
     M.Modal.getInstance(modal).close();
     loginForm.reset();
+    loginForm.querySelector('.error').innerHTML = '';
+  }).catch(err => {
+    loginForm.querySelector('.error').innerHTML= err.message
   })
 })
